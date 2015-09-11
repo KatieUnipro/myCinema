@@ -1,0 +1,21 @@
+@mixin trans($what : all , $time : 1s, $ease : ease-in-out) {
+  -webkit-transition: $what $time $ease;
+  -moz-transition: $what $time $ease;
+  -o-transition: $what $time $ease;
+  transition: $what $time $ease;
+}
+// Breakpoints
+// ------------------------- //
+
+@mixin bp($point, $type: width) {
+  @if $type == "width" { @media (max-width: $point) { @content; }}
+  @elseif $type == "height" { @media (max-height: $point) { @content; }}
+}
+
+// My Panel Box
+@mixin panel(){
+  background: $panel-bg;
+  border: 1px solid $light;
+  padding: 10px;
+  border-radius: 2px;
+}

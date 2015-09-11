@@ -1,0 +1,118 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+/**
+ * @file
+ * Typography Page
+ *
+ *
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic);
+/* line 22, ../sass/_typography.scss */
+body {
+  color: #444; }
+
+/* line 29, ../sass/_typography.scss */
+a {
+  text-decoration: none;
+  color: black; }
+  /* line 35, ../sass/_typography.scss */
+  a:hover {
+    color: #79758c; }
+
+/* line 40, ../sass/_typography.scss */
+p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px; }
+
+/* line 2, ../sass/partials/_header.scss */
+.header-wrapper, .footer {
+  display: flex;
+  background-color: #E6E6E6;
+  padding: 15px 0;
+  opacity: 1;
+  width: 100%;
+  z-index: 999;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out; }
+  @media (max-width: 560px) {
+    /* line 2, ../sass/partials/_header.scss */
+    .header-wrapper, .footer {
+      position: static; } }
+  /* line 16, ../sass/partials/_header.scss */
+  .header-wrapper.opacity, .footer.opacity {
+    opacity: 0.9; }
+  /* line 19, ../sass/partials/_header.scss */
+  .header-wrapper .navbar-default, .footer .navbar-default {
+    background: transparent;
+    border: 0px; }
+
+/* line 4, ../sass/partials/_tabs.scss */
+.quicktabs-wrapper ul {
+  padding: 0px;
+  margin: 0px; }
+  /* line 8, ../sass/partials/_tabs.scss */
+  .quicktabs-wrapper ul li {
+    border-bottom: 1px;
+    position: static;
+    background-color: transparent;
+    margin-bottom: 0px;
+    padding: 11px 15px; }
+    /* line 15, ../sass/partials/_tabs.scss */
+    .quicktabs-wrapper ul li.active {
+      padding: 12px 15px;
+      border: 1px solid #E6E6E6;
+      border-bottom: 0px;
+      position: relative;
+      z-index: 9;
+      background-color: #fff; }
+    /* line 27, ../sass/partials/_tabs.scss */
+    .quicktabs-wrapper ul li a, .quicktabs-wrapper ul li a:hover {
+      text-decoration: none; }
+/* line 34, ../sass/partials/_tabs.scss */
+.quicktabs-wrapper .quicktabs_main {
+  border: 1px solid #E6E6E6;
+  padding: 0 15px 15px;
+  margin-top: 8px; }
+
+/* line 1, ../sass/partials/_films.scss */
+.field-type-image {
+  float: left;
+  margin-right: 10px; }
+
+/* line 8, ../sass/partials/_films.scss */
+.field-name-field-film-cast .field-items .field-item {
+  float: left;
+  margin-right: 5px; }
+  /* line 12, ../sass/partials/_films.scss */
+  .field-name-field-film-cast .field-items .field-item:after {
+    content: ','; }
+
+/* line 22, ../sass/partials/_films.scss */
+.field-name-field-film-age-restriction {
+  float: left;
+  background-color: red;
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  border-radius: 45px;
+  color: white;
+  height: 35px;
+  width: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin-left: -32px;
+  margin-top: -10px;
+  margin-right: 10px; }
+
+/* line 37, ../sass/partials/_films.scss */
+.field-name-field-film-release-date {
+  margin-top: 10px; }

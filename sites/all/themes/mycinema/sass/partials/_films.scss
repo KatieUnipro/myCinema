@@ -1,0 +1,39 @@
+.field-type-image  {
+  float : left;
+  margin-right: 10px;
+}
+
+.field-name-field-film-cast {
+  .field-items {
+    .field-item {
+      float :left;
+      margin-right : 5px;
+
+      &:after {
+        content : ',';
+      }
+
+    }
+  }
+
+
+
+}
+.field-name-field-film-age-restriction {
+  float: left;
+  background-color: red;
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  border-radius: 45px;
+  color: white;
+  height: 35px;
+  width: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin-left: -32px;
+  margin-top: -10px;
+  margin-right: 10px;
+}
+.field-name-field-film-release-date {
+  margin-top :10px;
+}

@@ -1,0 +1,24 @@
+
+.header-wrapper , .footer {
+ display: flex;
+ background-color: $light;
+ padding: 15px 0;
+ opacity : 1;
+  width: 100%;
+ z-index: 999;
+
+ @include trans(opacity , 0.5s);
+
+ @include bp(560px) {
+  position: static;
+ }
+
+ &.opacity {
+  opacity : 0.9;
+ }
+ .navbar-default {
+  background : transparent;
+  border : 0px;
+ }
+
+}

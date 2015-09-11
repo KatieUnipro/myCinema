@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Typography Page
+ *
+ *
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic);
+
+// setting variables
+
+$font-family : 'Open Sans' , sans-serif;
+
+$body-color : #444;
+$primary-brand-color : #19181D;
+$secondary-brand-color : lighten($primary-brand-color , 40);
+$light : #E6E6E6;
+$white: #fff;
+
+// global
+
+body {
+  color  : $body-color;
+ // background: #2d2b33 url('../img/backgrounds/glow.jpg') center 890px no-repeat;
+}
+
+
+
+a {
+  //@include trans($what : color , $time : 0.5s);
+
+  text-decoration: none;
+  color: darken($primary-brand-color , 40);
+
+  &:hover {
+    color: $secondary-brand-color;
+
+  }
+}
+p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
