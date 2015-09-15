@@ -1,0 +1,17 @@
+.footer {
+  padding: 15px 0px;
+
+  ul {
+    li {
+      float :left;
+
+      a {
+        &:hover {
+          background: transparent;
+        }
+      }
+
+
+    }
+  }
+}

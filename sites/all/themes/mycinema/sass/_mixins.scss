@@ -19,3 +19,46 @@
   padding: 10px;
   border-radius: 2px;
 }
+
+// Icons
+// ------------------------- //
+
+@mixin icon($icon: null, $position: before, $padding: 0, $color: null, $set: null) {
+
+  &:#{$position} {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: $icon;
+    display: inline-block;
+    color: $color;
+    font: {
+      style: normal;
+      weight: normal;
+    }
+    line-height: 1;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @if $padding not 0 {
+    @if $position == "before" {
+      padding-right: $padding;
+    } @elseif $position == "after" {
+      padding-left: $padding;
+    }
+  }
+  }
+}
+@mixin box($color : $primary-brand-color){
+  padding: 5px;
+  float: left;
+  border-radius: 4px;
+  background-color: $color;
+  color: lighten($primary-brand-color , 100);
+
+}
+

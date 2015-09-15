@@ -1,0 +1,61 @@
+.field-collection-item-field-cinema-time , .panel-col-first .field-name-field-cinema-adress {
+  @include  box($primary-brand-color);
+  color: $white;
+  margin-right: 10px;
+}
+.panel-col-first .field-name-field-cinema-adress {
+  clear: both;
+  text-align: center;
+  float: right;
+  margin-right: 0px;
+}
+.field-name-field-cinema-telephone {
+  @include  box($primary-brand-color);
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+
+  margin-right: 10px;
+  color: $white;
+}
+.field-name-field-cinema-telephone .field-items {
+  @include fa-icon($fa-phone);
+
+  .field-item {
+    float:left;
+
+
+  }
+
+
+
+  &:before{
+    float: left;
+    margin-right: 6px;
+    line-height: 20px;
+    margin-left: 5px;
+
+
+  }
+
+}
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: $white;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 10px;
+}
+.table>thead>tr>th  , .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border: 0px;
+}
+.table > tbody > tr > td {
+  padding-top: 16px;
+}
+.panel-col-first .pane-node-field-cinema-adress {
+  float :left;
+}
+th.field_cinema_time_film {
+ display: none;
+}
+.table > tbody > tr > td.field_cinema_time {
+  padding-top: 12px;
+}

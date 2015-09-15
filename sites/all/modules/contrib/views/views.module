@@ -575,7 +575,7 @@ function views_preprocess_html(&$variables) {
   // associated with. This we don't want; for better visual highlighting, we
   // prefer a smaller region to be chosen. The region we prefer differs from
   // theme to theme and depends on the details of the theme's markup in
-  // page.tpl.php, so we can only find it using JavaScript. We therefore remove
+  // page--node--films--full.tpl.php, so we can only find it using JavaScript. We therefore remove
   // the "contextual-links-region" class from the <body> tag here and add
   // JavaScript that will insert it back in the correct place.
   if (!empty($variables['page']['#views_contextual_links_info'])) {
@@ -590,7 +590,7 @@ function views_preprocess_html(&$variables) {
 }
 
 /**
-* Implements hook_preprocess_HOOK() for page.tpl.php.
+* Implements hook_preprocess_HOOK() for page--node--films--full.tpl.php.
 */
 function views_preprocess_page(&$variables) {
   // If the page contains a view as its main content, contextual links may have
@@ -602,7 +602,7 @@ function views_preprocess_page(&$variables) {
   // associated with. This we don't want; for better visual highlighting, we
   // prefer a smaller region to be chosen. The region we prefer differs from
   // theme to theme and depends on the details of the theme's markup in
-  // page.tpl.php, so we can only find it using JavaScript. We therefore remove
+  // page--node--films--full.tpl.php, so we can only find it using JavaScript. We therefore remove
   // the "contextual-links-region" class from the <body> tag here and add
   // JavaScript that will insert it back in the correct place.
   if (!empty($variables['page']['#views_contextual_links_info'])) {

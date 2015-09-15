@@ -19,21 +19,72 @@
 
 
 }
-.field-name-field-film-age-restriction {
-  float: left;
-  background-color: red;
-  -webkit-border-radius: 45px;
-  -moz-border-radius: 45px;
-  border-radius: 45px;
-  color: white;
-  height: 35px;
-  width: 35px;
-  line-height: 35px;
-  text-align: center;
-  margin-left: -32px;
-  margin-top: -10px;
-  margin-right: 10px;
+.node-teaser {
+  .field-name-field-film-age-restriction {
+    float: left;
+    background-color: red;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    border-radius: 45px;
+    color: white;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-left: -32px;
+    margin-top: -10px;
+    margin-right: 10px;
+    position: absolute;
+    right:-10px;
+  }
 }
 .field-name-field-film-release-date {
-  margin-top :10px;
+  @include  box();
+  margin-top: 10px;
+
+
+}
+.group-film-poster-wrapper {
+  position: relative;
+
+  .multiple-inline-element{
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+  }
+
+  .group-film-poster-content {
+    position: absolute;
+    top: 12%;
+  right: 0px;
+    width: 50%;
+    background-color: rgba($light , 0.8);
+    padding: 20px;
+  }
+
+}
+.field-type-text-with-summary {
+  margin-bottom: 10px;
+}
+.field-name-field-film-showing-in {
+  float: left;
+  clear: both;
+  margin-top: 20px;
+}
+.field-group-multiple-container .multiple-element.field-item-field_film_poster_image {
+  padding: 0px;
+}
+.pane-node-body , .pane-node-field-film-cast , .field-name-field-film-age-restriction{
+  float: left;
+  clear: both;
+  margin-top: 15px;
+}
+.field-name-field-film-age-restriction {
+  margin-top:0px;
+
+  }
+.group-film-image-wrapper {
+  position: relative;
+  float: left;
 }

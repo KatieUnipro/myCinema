@@ -6,10 +6,19 @@
  * of these @include files will be combined into a single file.
  */
 // Optionally, add your own components here.
-@import "typography";
 @import "mixins";
 
+@import "typography";
+
+// Vendor
+
+@import "vendor/font-awesome";
 // Partials
 @import "partials/header";
+@import "partials/footer";
 @import "partials/tabs";
 @import "partials/films";
+@import "partials/carousel";
+@import "partials/cinema";
+
+

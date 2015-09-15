@@ -5,20 +5,18 @@
  * template.php
  */
 function mycinema_preprocess_block(&$vars) {
-    //  dpm($vars);
+   //   dpm($vars);
 }
 function mycinema_preprocess_page(&$vars, $hook)
 {
 
     if (true) {
-        drupal_add_js(drupal_get_path('theme', 'mycinema') . '/js/jquery.sticky.js');
-        drupal_add_js(drupal_get_path('theme', 'mycinema') . '/js/custom.js');
+       // drupal_add_js(drupal_get_path('theme', 'mycinema') . '/js/custom.js');
 
         $vars['scripts'] = drupal_get_js(); // necessary in D7?
     }
 
     //add news class
-   // dpm( $vars);
     //dpm( $vars['navbar_classes_array']);
     //$vars['navbar_classes_array'][] = 'new-class';
     //remove class

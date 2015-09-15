@@ -27,12 +27,13 @@ body {
 
 
 a {
-  //@include trans($what : color , $time : 0.5s);
+  @include trans($what : color , $time : 0.5s);
 
   text-decoration: none;
   color: darken($primary-brand-color , 40);
 
   &:hover {
+    text-decoration: none;
     color: $secondary-brand-color;
 
   }

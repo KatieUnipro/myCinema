@@ -34,7 +34,7 @@
  *   the site, if they have been configured.
  * - $breadcrumb: The breadcrumb trail for the current page.
  *
- * Page content (in order of occurrence in the default page.tpl.php):
+ * Page content (in order of occurrence in the default page--node--films--full.tpl.php):
  * - $title_prefix (array): An array containing additional output populated by
  *   modules, intended to be displayed in front of the main title tag that
  *   appears in the template.
@@ -73,7 +73,6 @@
  * @ingroup themeable
  */
 ?>
-<div class="header-wrapper">
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="container">
     <div class="navbar-header">
@@ -113,7 +112,7 @@
     <?php endif; ?>
   </div>
 </header>
-</div>
+
 <div class="main-container container">
 
   <header role="banner" id="page-header">
@@ -164,6 +163,9 @@
 
   </div>
 </div>
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
+<footer class="footer">
+  <div class="container">
+    <?php print render($page['footer']); ?>
+  </div>
+
 </footer>

@@ -1,0 +1,40 @@
+.carousel-indicators {
+  top: 20px;
+}
+.carousel-control {
+  &.right , &.left {
+    background-image: none;
+
+    span {
+      font-size: 2em;
+    }
+
+  }
+  .icon-next {
+    @include  fa-icon();
+    @include  icon($fa-arrow-circle-right , $color : $primary-brand-color);
+    font-size: 2em;
+
+  }
+  .icon-prev {
+    @include  fa-icon();
+    @include  icon($fa-arrow-circle-left , $color : $primary-brand-color);
+  }
+}
+
+.carousel-caption {
+  background-color: rgba($light , 0.6);
+  left: 2%;
+  width: 55%;
+  padding: 10px;
+
+  h3 , p {
+    text-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    text-align: left;
+  }
+
+  p {
+    color: $primary-brand-color;
+  }
+
+}
