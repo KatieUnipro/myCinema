@@ -17,10 +17,23 @@ $secondary-brand-color : lighten($primary-brand-color , 40);
 $light : #E6E6E6;
 $white: #fff;
 
+.btn-info , .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+  @include trans(all , 0.5s);
+  background-color: lighten($primary-brand-color , 20);
+  border-color: darken($primary-brand-color , 20);
+
+  &:hover , &:active , &:focus {
+    background-color :  darken($primary-brand-color , 20);
+    border-color: lighten($primary-brand-color , 20);
+  }
+
+}
+
 // global
 
 body {
   color  : $body-color;
+  font-family: 'open sans' , serif;
  // background: #2d2b33 url('../img/backgrounds/glow.jpg') center 890px no-repeat;
 }
 

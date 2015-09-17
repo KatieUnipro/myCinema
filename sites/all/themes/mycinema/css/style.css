@@ -13,11 +13,25 @@
  *
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic);
-/* line 22, ../sass/_typography.scss */
-body {
-  color: #444; }
+/* line 20, ../sass/_typography.scss */
+.btn-info, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background-color: #494655;
+  border-color: black; }
+  /* line 25, ../sass/_typography.scss */
+  .btn-info:hover, .btn-info:active, .btn-info:focus, .pagination > .active > a:hover, .pagination > .active > a:active, .pagination > .active > a:focus, .pagination > .active > span:hover, .pagination > .active > span:active, .pagination > .active > span:focus, .pagination > .active > a:hover:hover, .pagination > .active > a:hover:active, .pagination > .active > a:hover:focus, .pagination > .active > span:hover:hover, .pagination > .active > span:hover:active, .pagination > .active > span:hover:focus, .pagination > .active > a:focus:hover, .pagination > .active > a:focus:active, .pagination > .active > a:focus:focus, .pagination > .active > span:focus:hover, .pagination > .active > span:focus:active, .pagination > .active > span:focus:focus {
+    background-color: black;
+    border-color: #494655; }
 
-/* line 29, ../sass/_typography.scss */
+/* line 34, ../sass/_typography.scss */
+body {
+  color: #444;
+  font-family: 'open sans' , serif; }
+
+/* line 42, ../sass/_typography.scss */
 a {
   -webkit-transition: color 0.5s ease-in-out;
   -moz-transition: color 0.5s ease-in-out;
@@ -25,12 +39,12 @@ a {
   transition: color 0.5s ease-in-out;
   text-decoration: none;
   color: black; }
-  /* line 35, ../sass/_typography.scss */
+  /* line 48, ../sass/_typography.scss */
   a:hover {
     text-decoration: none;
     color: #79758c; }
 
-/* line 41, ../sass/_typography.scss */
+/* line 54, ../sass/_typography.scss */
 p {
   display: block;
   -webkit-margin-before: 1em;
@@ -68,6 +82,10 @@ p {
 /* line 20, ../sass/partials/_header.scss */
 .main-container {
   margin-top: 55px; }
+
+/* line 23, ../sass/partials/_header.scss */
+.navbar-collapse {
+  float: right; }
 
 /* line 1, ../sass/partials/_footer.scss */
 .footer {
@@ -196,6 +214,17 @@ p {
 .group-film-image-wrapper {
   position: relative;
   float: left; }
+
+/* line 91, ../sass/partials/_films.scss */
+.pane-now-showing-in {
+  border-top: 1px solid #E6E6E6;
+  clear: both;
+  width: 100%;
+  margin-top: 20px; }
+
+/* line 99, ../sass/partials/_films.scss */
+.pane-node-body {
+  margin-bottom: 10px; }
 
 /* line 1, ../sass/partials/_carousel.scss */
 .carousel-indicators {
@@ -343,35 +372,54 @@ p {
 /* line 24, ../sass/partials/_cinema.scss */
 .field-name-field-cinema-telephone .field-items .field-item {
   float: left; }
-/* line 32, ../sass/partials/_cinema.scss */
+/* line 30, ../sass/partials/_cinema.scss */
 .field-name-field-cinema-telephone .field-items:before {
   float: left;
   margin-right: 6px;
   line-height: 20px;
   margin-left: 5px; }
 
-/* line 42, ../sass/partials/_cinema.scss */
+/* line 40, ../sass/partials/_cinema.scss */
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #fff;
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 10px; }
 
-/* line 47, ../sass/partials/_cinema.scss */
+/* line 45, ../sass/partials/_cinema.scss */
 .table > thead > tr > th, .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   border: 0px; }
 
-/* line 50, ../sass/partials/_cinema.scss */
+/* line 48, ../sass/partials/_cinema.scss */
 .table > tbody > tr > td {
   padding-top: 16px; }
 
-/* line 53, ../sass/partials/_cinema.scss */
+/* line 51, ../sass/partials/_cinema.scss */
 .panel-col-first .pane-node-field-cinema-adress {
   float: left; }
 
-/* line 56, ../sass/partials/_cinema.scss */
+/* line 54, ../sass/partials/_cinema.scss */
 th.field_cinema_time_film {
   display: none; }
 
-/* line 59, ../sass/partials/_cinema.scss */
+/* line 57, ../sass/partials/_cinema.scss */
 .table > tbody > tr > td.field_cinema_time {
   padding-top: 12px; }
+
+/* line 2, ../sass/partials/_news.scss */
+.view-id-news .submitted {
+  padding: 5px;
+  float: left;
+  border-radius: 4px;
+  background-color: #19181D;
+  color: white;
+  margin-bottom: 0px; }
+  /* line 6, ../sass/partials/_news.scss */
+  .view-id-news .submitted a {
+    color: #E6E6E6; }
+/* line 11, ../sass/partials/_news.scss */
+.view-id-news .content {
+  float: left;
+  clear: both; }
+/* line 15, ../sass/partials/_news.scss */
+.view-id-news .views-exposed-widget .form-submit {
+  margin-top: 1.8em; }

@@ -88,3 +88,14 @@
   position: relative;
   float: left;
 }
+.pane-now-showing-in {
+  border-top : 1px solid $light;
+  clear: both;
+  width: 100%;
+  margin-top:20px;
+
+
+}
+.pane-node-body {
+  margin-bottom: 10px;
+}
