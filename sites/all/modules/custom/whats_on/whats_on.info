@@ -1,0 +1,6 @@
+name = Whats On
+description = A Module to create cinema times, dates and movie's in chichester
+core = 7.x
+dependencies[] = field_collection
+dependencies[] = views
+package = "What's On"

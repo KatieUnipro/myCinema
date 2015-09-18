@@ -4,20 +4,23 @@
 }
 
 .field-name-field-film-cast {
-  .field-items {
-    .field-item {
-      float :left;
-      margin-right : 5px;
 
-      &:after {
-        content : ',';
+  .field-item {
+    float :left;
+    margin-right : 5px;
+    .field-items {
+      .field-item {
+
+
+        &:after {
+          content : ' | ';
+        }
+
+
       }
-
-    }
   }
 
-
-
+  }
 }
 .node-teaser {
   .field-name-field-film-age-restriction {

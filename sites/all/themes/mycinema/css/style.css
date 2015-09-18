@@ -85,7 +85,14 @@ p {
 
 /* line 23, ../sass/partials/_header.scss */
 .navbar-collapse {
-  float: right; }
+  float: right;
+  padding: 5px 0px; }
+
+/* line 27, ../sass/partials/_header.scss */
+.navbar-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px; }
 
 /* line 1, ../sass/partials/_footer.scss */
 .footer {
@@ -134,14 +141,14 @@ p {
   margin-right: 10px; }
 
 /* line 8, ../sass/partials/_films.scss */
-.field-name-field-film-cast .field-items .field-item {
+.field-name-field-film-cast .field-item {
   float: left;
   margin-right: 5px; }
-  /* line 12, ../sass/partials/_films.scss */
-  .field-name-field-film-cast .field-items .field-item:after {
-    content: ','; }
+  /* line 15, ../sass/partials/_films.scss */
+  .field-name-field-film-cast .field-item .field-items .field-item:after {
+    content: ' | '; }
 
-/* line 23, ../sass/partials/_films.scss */
+/* line 26, ../sass/partials/_films.scss */
 .node-teaser .field-name-field-film-age-restriction {
   float: left;
   background-color: red;
@@ -159,7 +166,7 @@ p {
   position: absolute;
   right: -10px; }
 
-/* line 41, ../sass/partials/_films.scss */
+/* line 44, ../sass/partials/_films.scss */
 .field-name-field-film-release-date {
   padding: 5px;
   float: left;
@@ -168,16 +175,16 @@ p {
   color: white;
   margin-top: 10px; }
 
-/* line 47, ../sass/partials/_films.scss */
+/* line 50, ../sass/partials/_films.scss */
 .group-film-poster-wrapper {
   position: relative; }
-  /* line 50, ../sass/partials/_films.scss */
+  /* line 53, ../sass/partials/_films.scss */
   .group-film-poster-wrapper .multiple-inline-element {
     background: none;
     padding: 0px;
     margin: 0px;
     border: 0px; }
-  /* line 57, ../sass/partials/_films.scss */
+  /* line 60, ../sass/partials/_films.scss */
   .group-film-poster-wrapper .group-film-poster-content {
     position: absolute;
     top: 12%;
@@ -186,43 +193,43 @@ p {
     background-color: rgba(230, 230, 230, 0.8);
     padding: 20px; }
 
-/* line 67, ../sass/partials/_films.scss */
+/* line 70, ../sass/partials/_films.scss */
 .field-type-text-with-summary {
   margin-bottom: 10px; }
 
-/* line 70, ../sass/partials/_films.scss */
+/* line 73, ../sass/partials/_films.scss */
 .field-name-field-film-showing-in {
   float: left;
   clear: both;
   margin-top: 20px; }
 
-/* line 75, ../sass/partials/_films.scss */
+/* line 78, ../sass/partials/_films.scss */
 .field-group-multiple-container .multiple-element.field-item-field_film_poster_image {
   padding: 0px; }
 
-/* line 78, ../sass/partials/_films.scss */
+/* line 81, ../sass/partials/_films.scss */
 .pane-node-body, .pane-node-field-film-cast, .field-name-field-film-age-restriction {
   float: left;
   clear: both;
   margin-top: 15px; }
 
-/* line 83, ../sass/partials/_films.scss */
+/* line 86, ../sass/partials/_films.scss */
 .field-name-field-film-age-restriction {
   margin-top: 0px; }
 
-/* line 87, ../sass/partials/_films.scss */
+/* line 90, ../sass/partials/_films.scss */
 .group-film-image-wrapper {
   position: relative;
   float: left; }
 
-/* line 91, ../sass/partials/_films.scss */
+/* line 94, ../sass/partials/_films.scss */
 .pane-now-showing-in {
   border-top: 1px solid #E6E6E6;
   clear: both;
   width: 100%;
   margin-top: 20px; }
 
-/* line 99, ../sass/partials/_films.scss */
+/* line 102, ../sass/partials/_films.scss */
 .pane-node-body {
   margin-bottom: 10px; }
 
@@ -310,17 +317,29 @@ p {
 
 /* line 25, ../sass/partials/_carousel.scss */
 .carousel-caption {
-  background-color: rgba(230, 230, 230, 0.6);
-  left: 2%;
+  left: 29%;
   width: 55%;
-  padding: 10px; }
+  padding: 10px;
+  top: 29%; }
   /* line 31, ../sass/partials/_carousel.scss */
-  .carousel-caption h3, .carousel-caption p {
+  .carousel-caption h3, .carousel-caption p, .carousel-caption h3 a {
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
-    text-align: left; }
-  /* line 36, ../sass/partials/_carousel.scss */
-  .carousel-caption p {
-    color: #19181D; }
+    text-align: left;
+    color: #fff; }
+
+/* line 39, ../sass/partials/_carousel.scss */
+.carousel.slide {
+  background-image: url("../img/backgrounds/poster_bg.jpg");
+  padding: 25px;
+  border-radius: 4px;
+  min-height: 369px; }
+  /* line 45, ../sass/partials/_carousel.scss */
+  .carousel.slide img {
+    border-radius: 4px;
+    width: 20%;
+    left: 0%;
+    position: relative;
+    opacity: 1; }
 
 /* line 1, ../sass/partials/_cinema.scss */
 .field-collection-item-field-cinema-time, .panel-col-first .field-name-field-cinema-adress {

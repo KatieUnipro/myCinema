@@ -23,18 +23,32 @@
 }
 
 .carousel-caption {
-  background-color: rgba($light , 0.6);
-  left: 2%;
+  left: 29%;
   width: 55%;
   padding: 10px;
+  top: 29%;
 
-  h3 , p {
-    text-shadow: 0 0px 0px rgba(0,0,0,0.6);
+  h3 , p , h3 a {
+    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
     text-align: left;
+    color: $white;
+
   }
 
-  p {
-    color: $primary-brand-color;
+}
+.carousel.slide {
+  background-image: url('../img/backgrounds/poster_bg.jpg');
+  padding: 25px;
+  border-radius: 4px;
+  min-height: 369px;
+
+  img {
+    border-radius: 4px;
+    width: 20%;
+    left: 0%;
+    position: relative;
+    opacity: 1;
+
   }
 
 }
