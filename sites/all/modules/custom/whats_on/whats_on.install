@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * movie_import.install
+ */
+/*
+ * Create a hook_install()
+ */
+//function movie_import_install() {
+//    $cinemas = drupal_http_request('http://www2.cineworld.co.uk/api/quickbook/cinemas?key=YEyQfFvY&full=true');
+//
+//    foreach ($cinemas as $cinema) {
+//        whats_on_save_cinema($cinema);
+//    }
+//
+//}

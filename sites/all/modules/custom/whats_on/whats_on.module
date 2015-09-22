@@ -17,7 +17,63 @@ function whats_on_menu() {
       'type' => MENU_CALLBACK,
       'page arguments' => array('whats_on_api_integration')
   );
+  // Creating a node to show some debugging
+    $items['whats-on-cinema'] = array(
+        'title' => 'Cinemas',
+        'page callback' => 'drupal_get_form',
+        'access arguments' => array('access content'),
+        'file' => 'whats_on_cinema.module',
+        'type' => MENU_CALLBACK,
+        'page arguments' => array('whats_on_cinema_integration')
+    );
+    $items['whats-on-times'] = array(
+        'title' => 'Time',
+        'page callback' => 'drupal_get_form',
+        'access arguments' => array('access content'),
+        'file' => 'whats_on_dates.module',
+        'type' => MENU_CALLBACK,
+        'page arguments' => array('whats_on_cineworld')
+    );
   return $items;
+}
+
+
+
+/**
+ * Implements whats_on_remove_non_films().
+ */
+function whats_on_remove_non_films($movie_title){
+    $haystack = array (
+        'MET Opera',
+        'NT LIVE' ,
+        'NT Live' ,
+        'ROH Royal',
+        'Film Festival:',
+        'ENO 2015:',
+        'Disney On Ice',
+        'Ballet',
+        'Autism',
+        'Unlimited Screening',
+        'Met Opera',
+        'Theatre Live',
+        'Hindi',
+        'Tamil'
+
+    );
+    $matches = array();
+    foreach ($haystack as $search) {
+        $matches[] = preg_grep('/'.$search.'/', $movie_title);
+    }
+   $check = array();
+    foreach ($matches as $match) {
+        foreach ($match as $m) {
+            $check[] = $m;
+        }
+    }
+    $result = array_diff($movie_title, $check);
+
+    return $result;
+
 }
 
 /**
@@ -25,32 +81,31 @@ function whats_on_menu() {
  */
 function whats_on_api_integration() {
   // Check we are getting this func
-    $movies = drupal_http_request("https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20data.html.cssselect%20WHERE%20url%3D%27http://www.imdb.com/movies-coming-soon/2015-10/%27%20AND%20css%3D%27.overview-top%20h4%20a%27&format=json&env=store://datatables.org/alltableswithkeys");
-
+    $movies = drupal_http_request("http://www2.cineworld.co.uk/api/quickbook/films?key=YEyQfFvY");
     if ($movies->code == 200):
         // Decode our response
         $data = drupal_json_decode($movies->data);
         // If this is a movie return true;
-        $movie_titles = $data['query']['results']['results']['a'];
+
+        $movie_titles = $data['films'];
         $title = array();
         foreach ($movie_titles as $key => $movie) :
-            $remove_3D = str_replace(' 3D' , '' , $movie['content']);
-            $remove_3D = whats_on_san_file($remove_3D);
-            if (!in_array($remove_3D, $title)) {
-                $title[] = $remove_3D;
+            $movie_title = whats_on_remove_showing_type($movie['title']);
+        //    dsm($movie);
+          //  $movie_title = whats_on_remove_non_films($movie_title);
+
+         //   dsm($movie_title);
+            if (!in_array($movie_title, $title)) {
+                $title[$movie['edi']] = $movie_title;
             }
         endforeach;
-        foreach($title as $key => $m_title) :
-            $title_year = whats_on_year_title($m_title);
-            $movie_exsits = whats_on_check_movie_exists($title_year['film_name']);
+        $new_title = whats_on_remove_non_films($title);
+        foreach($new_title as $key => $m_title) :
+            $movie_exsits = whats_on_check_movie_exists($m_title);
             $movie = '';
-
-
-
             if (!$movie_exsits) :
-                $movie = whats_on_api_OMDB(strtolower($title_year['film_name']) , $title_year['film_year']);
-                //dsm($movie_exsits);
-                whats_on_create_node($movie , 'films');
+               $movie = whats_on_api_OMDB(strtolower($m_title));
+               whats_on_create_node($movie , 'films' , $key);
             endif;
         endforeach;
     endif;
@@ -93,8 +148,9 @@ function whats_on_check_movie_exists($movie_title) {
 /*
  * Get Movie via OMDB API
  */
-function whats_on_api_OMDB($title , $year) {
+function whats_on_api_OMDB($title ) {
     // Get response from API
+    $year = date('Y');
     $movie_api_request = drupal_http_request(str_replace('%movie_name' , urlencode($title) , 'http://www.omdbapi.com/?t=%movie_name&y='.$year.'&plot=full&r=json'));
   //  dsm($movie_api_request);
     if ($movie_api_request->code == 200):
@@ -105,7 +161,9 @@ function whats_on_api_OMDB($title , $year) {
         if ($data['Response'] && !empty($data['Year'])) :
             // Check this is a movie
             if ($data['Type'] === 'movie' && $data['Year']  >= date('Y')) :
+                dsm($data);
                 return $data;
+
             else :
                 return FALSE;
             endif;
@@ -120,24 +178,28 @@ function whats_on_api_OMDB($title , $year) {
  * Create new node for new movies
  *
  */
-function whats_on_create_node($movie , $machine_name){
+function whats_on_create_node($movie , $machine_name , $film_id){
+    //($film_id);
     global $user;
     if (!empty($movie)) :
         $poster = whats_on_poster_image($movie['Poster'] ,  $movie['Title'] , $user->uid);
 
         if (!whats_on_check_movie_exists($movie['Title'])) :
-          //  if ($movie['Released'] != 'N/A') :
+
+            if ($movie['Released'] != 'N/A') :
                 $release_date = date("Y-m-d", strtotime($movie['Released']));
-          //  else :
-          //      $release_date = 'N/A';
-         //   endif;
+            else :
+                $release_date = date("Y-m-d", strtotime('2015-12-12'));
+            endif;
+            dsm($release_date);
      // Node Content Values
     $node = new stdClass();
     $node->title = $movie['Title'];
     $node->body[LANGUAGE_NONE][0]['value'] = $movie['Plot'];
-    $node->field_film_age_restriction['und'][0]['value'] = $movie['Rated'];
-    $node->field_film_release_date['und'][0]['value'] = $release_date;
+    $node->field_film_age_restriction[LANGUAGE_NONE][0]['value'] = $movie['Rated'];
+    $node->field_film_release_date[LANGUAGE_NONE][0]['value'] = $release_date;
     $node->field_film_teaser_image[LANGUAGE_NONE][0] = (array) $poster;
+    $node->field_film_cineworld_id[LANGUAGE_NONE][0]['value'] = $film_id;
     $node->type = $machine_name;
     $node->path = array('pathauto' => TRUE);
     node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
@@ -147,18 +209,12 @@ function whats_on_create_node($movie , $machine_name){
     $node->promote = 0; //(1 or 0): promoted to front page
     $node->comment = 0; // 0 = comments disabled, 1 = read only, 2 = read/write
     //save the new node
-   $node = node_submit($node); // Prepare node for saving
+    $node = node_submit($node); // Prepare node for saving
     node_save($node);
-
-
-dsm($movie);
-
     $message = t('Success! Start adding your review for @name', array('@name' => $movie['Title']));
-    drupal_set_message( $message );
-            whats_on_cast($node ,  $movie['Actors']);
-
- //   return  url(drupal_get_path_alias('node/' . $node->nid . '/edit'));
-        endif;
+   drupal_set_message( $message );
+     whats_on_cast($node , $movie['Actors']);
+    endif;
     endif;
 
 }
@@ -172,9 +228,6 @@ function whats_on_poster_image($poster , $title , $user_id) {
     endif;
     // My Poster Image
     $get_poster = drupal_http_request($poster);
-
-    dsm($poster);
-
     // Sanitize the title
     $safe_filename = whats_on_san_file($title);
     // Set the file name with the mime ext (.jpg)
@@ -192,6 +245,9 @@ function whats_on_poster_image($poster , $title , $user_id) {
         );
         // Copy to my public dir
         $file = file_copy($file , 'public://');
+
+
+
         // Return File
         return $file;
     endif;
@@ -221,9 +277,9 @@ function whats_on_cast($node , $cast){
         $field_collection_value->field_actor_actress_name[LANGUAGE_NONE][0]['value'] = $name;
         // Save field-collection item.
         $field_collection_value->save();
-        dsm($field_collection_value);
+      //  dsm($field_collection_value);
         //$node->field_film_cast[LANGUAGE_NONE][]['value'] = $field_collection_value->item_id;
-        dsm($node);
+      //  dsm($node);
     endforeach;
 
    else :
@@ -231,4 +287,16 @@ function whats_on_cast($node , $cast){
     endif;
 
     return $cast_list;
+}
+/*
+* Removing IMAX, 2D, 3D from titles
+*
+*/
+function whats_on_remove_showing_type($title){
+    $title = str_replace('IMAX 3D - ' , '' , $title);
+    $title = str_replace('3D - ' , '' , $title);
+    $title = str_replace('2D - ' , '' , $title);
+    return $title;
+
+
 }

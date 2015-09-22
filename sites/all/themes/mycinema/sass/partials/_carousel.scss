@@ -1,54 +1,87 @@
 .carousel-indicators {
-  top: 20px;
+  bottom: -9px;
+  padding: 5px;
+  float: left;
+  background-color: $primary-brand-color;
+  color: white;
+  margin-top: 10px;
+  width: 100%;
+  left: 30%;
+  box-shadow: 0px 0px 8px 2px #524e4e;
+  -moz-box-shadow: 0px 0px 8px 2px #524e4e;
+  -webkit-box-shadow: 0px 0px 8px 2px #524e4e;
 }
 .carousel-control {
   &.right , &.left {
     background-image: none;
+    opacity: 1;
+
 
     span {
       font-size: 2em;
+      color: $light;
+
     }
 
   }
   .icon-next {
     @include  fa-icon();
-    @include  icon($fa-arrow-circle-right , $color : $primary-brand-color);
+    @include  icon($fa-arrow-right , $color : $primary-brand-color);
     font-size: 2em;
+
+    &:hover {
+      &:before {
+        @include trans(all , 0.2s);
+        color: lighten($primary-brand-color , 20);
+      }
+    }
 
   }
   .icon-prev {
     @include  fa-icon();
-    @include  icon($fa-arrow-circle-left , $color : $primary-brand-color);
+    @include  icon($fa-arrow-left , $color : $primary-brand-color);
+
+    &:hover {
+      &:before {
+        @include trans(all , 0.2s);
+        color: lighten($primary-brand-color , 20);
+      }
+    }
+
   }
 }
 
 .carousel-caption {
-  left: 29%;
   width: 55%;
-  padding: 10px;
   top: 29%;
+  right: 0%;
+  left: 36%;
 
   h3 , p , h3 a {
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6);
     text-align: left;
-    color: $white;
+    color: darken($light , 100);
+
 
   }
 
 }
 .carousel.slide {
-  background-image: url('../img/backgrounds/poster_bg.jpg');
-  padding: 25px;
-  border-radius: 4px;
-  min-height: 369px;
+  background: $light;
 
   img {
-    border-radius: 4px;
-    width: 20%;
-    left: 0%;
-    position: relative;
-    opacity: 1;
-
+    width: 25%;
+    height: auto;
   }
 
+}
+.panels-flexible-1 .panels-flexible-region {
+  padding: 0;
+  width: 100%;
+}
+.carousel-inner .item{
+  padding: 15px 0 40px 0;
+}
+.view-home-slideshow {
+  border-top: 30px solid #19181D;
 }

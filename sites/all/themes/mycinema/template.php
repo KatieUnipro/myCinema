@@ -11,7 +11,7 @@ function mycinema_preprocess_page(&$vars, $hook)
 {
 
     if (true) {
-       // drupal_add_js(drupal_get_path('theme', 'mycinema') . '/js/custom.js');
+        drupal_add_js(drupal_get_path('theme', 'mycinema') . '/js/custom.js');
 
         $vars['scripts'] = drupal_get_js(); // necessary in D7?
     }

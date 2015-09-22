@@ -6,6 +6,7 @@
  opacity : 0.9;
   width: 100%;
  z-index: 999;
+ border-bottom: 6px solid #19181D;
 
  @include trans(opacity , 0.5s);
 
@@ -18,7 +19,7 @@
  }
 }
 .main-container {
-  margin-top: 55px;
+  margin-top: 32px;
 }
 .navbar-collapse {
  float: right;
