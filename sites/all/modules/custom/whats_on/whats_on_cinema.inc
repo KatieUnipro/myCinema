@@ -12,6 +12,12 @@ function whats_on_cinema_integration() {
         }
     }
 }
+
+/**
+ * @param $title
+ * whats_on_check_cinema_exists
+ * @return bool -- if films exists returns false
+ */
 function whats_on_check_cinema_exists($title){
     // Check if movie exists
     $result = db_select('node' , 'n')->fields('n')->condition('title' , $title , '=')->execute()->fetchAssoc();
@@ -22,9 +28,15 @@ function whats_on_check_cinema_exists($title){
     endif;
 
 }
+
+/**
+ * @param $cinema
+ * @param $machine_name
+ * @throws Exception
+ * Saves cinema as a node.
+ */
 function whats_on_save_cinema($cinema , $machine_name){
     global $user;
-    dsm($cinema);
     if (!empty($cinema)) :
         if (!whats_on_check_cinema_exists($cinema['name'])) :
             // Node Content Values
@@ -36,8 +48,6 @@ function whats_on_save_cinema($cinema , $machine_name){
             $node->field_cinema_telephone_new[LANGUAGE_NONE][0]['value'] = $cinema['telephone'];
             $node->field_cinema_url[LANGUAGE_NONE][0]['value'] = array(
                 'value' => $cinema['cinema_url'],
-               // 'title' => $cinema['name'],
-               // 'attributes' => array('target' => 'default')
             );
             $node->field_cinema_id[LANGUAGE_NONE][0]['value'] = $cinema['id'];
             node_object_prepare($node); // Sets some defaults. Invokes hook_prepare() and hook_node_prepare().
@@ -51,9 +61,6 @@ function whats_on_save_cinema($cinema , $machine_name){
             node_save($node);
             $message = t('Success! Start adding your review for @name', array('@name' => $cinema['name']));
             drupal_set_message( $message );
-
-
-            //   return  url(drupal_get_path_alias('node/' . $node->nid . '/edit'));
         endif;
     endif;
 }

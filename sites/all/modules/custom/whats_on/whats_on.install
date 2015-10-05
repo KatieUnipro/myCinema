@@ -3,14 +3,46 @@
  * @file
  * movie_import.install
  */
-/*
- * Create a hook_install()
- */
-//function movie_import_install() {
-//    $cinemas = drupal_http_request('http://www2.cineworld.co.uk/api/quickbook/cinemas?key=YEyQfFvY&full=true');
-//
-//    foreach ($cinemas as $cinema) {
-//        whats_on_save_cinema($cinema);
-//    }
-//
-//}
+/* Implements hook_schema() */
+function whats_on_schema(){
+    $schema['cinema_markers'] = array(
+        // Example (partial) specification for table "node".
+        'description' => 'The base table for cinema marker.',
+        'fields' => array(
+            'nid' => array(
+                'description' => 'The primary identifier for users favorite film',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'marker_description' => array(
+                'description' => 'the genres this user likes.',
+                'type' => 'text',
+                'size' => 'small',
+                'not null' => TRUE,
+                'serialize' => TRUE,
+            ),
+            'lat' => array(
+                'description' => 'the genres this user likes.',
+                'type' => 'text',
+                'size' => 'small',
+                'not null' => TRUE,
+                'serialize' => TRUE,
+            ),
+            'lng' => array(
+                'description' => 'the genres this user likes.',
+                'type' => 'text',
+                'size' => 'small',
+                'not null' => TRUE,
+                'serialize' => TRUE,
+            ),
+        ),
+        'unique keys' => array(
+
+            'nid' => array('nid'),
+        ),
+        'primary key' => array('nid'),
+    );
+
+    return $schema;
+}

@@ -57,3 +57,70 @@ th.field_cinema_time_film {
 .table > tbody > tr > td.field_cinema_time {
   padding-top: 12px;
 }
+#panels-ipe-regionid-left , .pane-node-field-film-teaser-image {
+  margin-bottom: 10px;
+  float: left;
+  width: 100%;
+  clear: left;
+  text-align: center;
+
+
+
+}
+.field-name-field-film-release-date{
+  clear: both;
+  margin-bottom: 10px;
+}
+.pane-node-field-film-cast{
+  width :100%;
+}
+#panels-ipe-regionid-right , .pane-node-body{
+  margin-bottom: 10px;
+  float: left;
+  width: 100%;
+}
+
+.field-name-field-cinema-showing-times {
+  .field_cinema_time_film  , .field_cinema_showing_date{
+    width: 26%;
+  }
+}
+
+.views-field-field-cinema-time .field-collection-view {
+  float: left;
+}
+
+.view-id-showing_times  {
+  caption {
+    @include box($light);
+    color: black;
+    width: 100%;
+    clear: both;
+    float: none;
+    border-radius: 4px 4px 0 0;
+    font-weight: 500;
+  }
+  table {
+    border: 1px solid $light;
+  }
+}
+.pane-node-field-cinema-telephone-new {
+  float: left;
+}
+.pane-node-field-cinema-adress.second-address {
+  float: right;
+}
+.pane-showing-times {
+  clear: both;
+.pane-title {
+  clear: both;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #f4f4f4;
+  padding-top: 10px;
+}
+
+}

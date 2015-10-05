@@ -19,8 +19,14 @@
  }
 }
 .main-container {
-  margin-top: 32px;
+ margin-top: 80px;
 }
+.front {
+ .main-container {
+  margin-top: 50px;
+ }
+}
+
 .navbar-collapse {
  float: right;
  padding: 5px 0px;
