@@ -56,11 +56,13 @@ function whats_on_cinema_json(){
         $address = $node->field_cinema_adress[LANGUAGE_NONE][0]['value'];
         $encode = urlencode($address);
         $lat_long = drupal_http_request('http://maps.google.com/maps/api/geocode/json?address='.$encode.'&sensor=false');
+
         if($lat_long->code == 200 ) {
-            $lat_long = json_decode($lat_long->data);
-            $lat = $lat_long->results[0]->geometry->location->lat;
-            $lng = $lat_long->results[0]->geometry->location->lng;
-            $marker[] = array($node->title , $lat , $lng);
+            $lat_long_data = json_decode($lat_long->data);
+            dsm($lat_long_data);
+//            $lat = $lat_long->results[0]->geometry->location->lat;
+//            $lng = $lat_long->results[0]->geometry->location->lng;
+         //   $marker[] = array($node->title , $lat , $lng);
         }
     }
     dsm($marker);
